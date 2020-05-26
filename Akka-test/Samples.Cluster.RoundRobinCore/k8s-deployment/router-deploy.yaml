@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: akka-test
+  name: akka-test-router
+  labels:
+    app: akka-test-router
+spec:
+  clusterIP: None
+  ports:
+  - port: 2553
+  selector:
+    app: akka-test-router
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: akka-test
+  name: akka-test-router
+  labels:
+    app: akka-test-router
+spec:
+  serviceName: akka-test-router
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akka-test-router
+  template:
+    metadata: 
+      labels:
+        app: akka-test-router
+    spec:
+      containers:
+      - name: akka-test-router
+        image: xili10dockerregistry.azurecr.io/akka-test:v3.2
+        env:
+        - name: ACTORSYSTEM
+          value: ClusterSystem
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: CLUSTER_IP
+          value: "$(POD_NAME).akka-test-router"
+        - name: CLUSTER_PORT
+          value: "2553"
+        - name: CLUSTER_SEEDS
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse:4053
+        livenessProbe:
+          tcpSocket:
+            port: 2553
+        ports:
+        - containerPort: 2553
+          protocol: TCP
+        command: ["dotnet", "Samples.Cluster.RoundRobinCore.dll", "router"]

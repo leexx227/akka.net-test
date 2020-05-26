@@ -17,6 +17,7 @@ using Akka.Configuration;
 using Akka.Configuration.Hocon;
 using Akka.Routing;
 using Akka.Util.Internal;
+using Akka.Bootstrap.Docker;
 
 namespace Samples.Cluster.RoundRobin
 {
@@ -47,16 +48,18 @@ namespace Samples.Cluster.RoundRobin
             {
                 case "frontend":
                     // frontend
-                    var client = GetFrontendWithRouter(new string[0]);
+                    var client = GetFrontendWithRouter(new[] { "5054" });
                     await StartFrontend(client);
                     break;
                 case "backend":
                     // backend
                     await StartBackend(args);
+                    //LaunchBackend(new[] { "2551" });
+                    //Console.WriteLine("Launch backend.");
                     break;
                 case "router":
                     // router
-                    var router = GetRouter(new string[0]);
+                    var router = GetRouter(new[] { "2553" });
                     break;
                 default:
                     Console.WriteLine("Only support frontend, backend, router");
@@ -76,7 +79,7 @@ namespace Samples.Cluster.RoundRobin
                     .WithFallback(ConfigurationFactory.ParseString("akka.remote.dot-netty.tcp.hostname=" + dnsName))
                         .WithFallback(_clusterConfig);
 
-            var system = ActorSystem.Create("ClusterSystem", config);
+            var system = ActorSystem.Create("ClusterSystem", config.BootstrapFromDocker());
             var backend = system.ActorOf(Props.Create<BackendActor>(), "backend");
             Console.WriteLine($"Backend path: {backend.Path}");
         }
@@ -153,7 +156,7 @@ namespace Samples.Cluster.RoundRobin
                     .WithFallback(ConfigurationFactory.ParseString("akka.remote.dot-netty.tcp.hostname=" + dnsName))
                         .WithFallback(_clusterConfig);
 
-            var system = ActorSystem.Create("ClusterSystem", config);
+            var system = ActorSystem.Create("ClusterSystem", config.BootstrapFromDocker());
 
             var workers = new[] { "/user/backend" };
             var backendRouter =
@@ -175,7 +178,7 @@ namespace Samples.Cluster.RoundRobin
                     .WithFallback(ConfigurationFactory.ParseString("akka.remote.dot-netty.tcp.hostname=" + dnsName))
                         .WithFallback(_clusterConfig);
 
-            var system = ActorSystem.Create("ClusterSystem", config);
+            var system = ActorSystem.Create("ClusterSystem", config.BootstrapFromDocker());
 
             var frontend = system.ActorOf(Props.Create(() => new FrontendActor()), "frontend");
             Console.WriteLine($"Frontend path: {frontend.Path}");

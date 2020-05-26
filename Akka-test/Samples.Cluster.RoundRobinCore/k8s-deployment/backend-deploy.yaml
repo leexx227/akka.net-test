@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: akka-test
+  name: akka-test-backend
+  labels:
+    app: akka-test-backend
+spec:
+  clusterIP: None
+  ports:
+  - port: 2551
+  selector:
+    app: akka-test-backend
+
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: akka-test
+  name: akka-test-backend
+  labels:
+    app: akka-test-backend
+spec:
+  serviceName: akka-test-backend
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akka-test-backend
+  template:
+    metadata: 
+      labels:
+        app: akka-test-backend
+    spec:
+      containers:
+      - name: akka-test-backend
+        image: xili10dockerregistry.azurecr.io/akka-test:v3.2
+        env:
+        - name: ACTORSYSTEM
+          value: ClusterSystem
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: CLUSTER_IP
+          value: "$(POD_NAME).akka-test-backend"
+        - name: CLUSTER_PORT
+          value: "2551"
+        - name: CLUSTER_SEEDS
+          value: akka.tcp://$(ACTORSYSTEM)@lighthouse-0.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-1.lighthouse:4053,akka.tcp://$(ACTORSYSTEM)@lighthouse-2.lighthouse:4053
+        livenessProbe:
+          tcpSocket:
+            port: 2551
+        ports:
+        - containerPort: 2551
+          protocol: TCP
+        command: ["dotnet", "Samples.Cluster.RoundRobinCore.dll", "backend"]
