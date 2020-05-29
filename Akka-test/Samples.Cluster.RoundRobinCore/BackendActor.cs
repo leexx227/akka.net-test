@@ -18,6 +18,11 @@ namespace Samples.Cluster.RoundRobin
 
         protected ILoggingAdapter Log { get; } = Context.GetLogger();
 
+        protected override void PreStart()
+        {
+            Console.WriteLine($"Backend [{Cluster.SelfAddress}], parent: {Context.Parent}");
+        }
+
         protected override void OnReceive(object message)
         {
             if (message is FrontendCommand)

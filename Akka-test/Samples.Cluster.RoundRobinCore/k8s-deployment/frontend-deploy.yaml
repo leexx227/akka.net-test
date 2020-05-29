@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: akka-test-frontend
-        image: xili10dockerregistry.azurecr.io/akka-test:v3.3
+        image: xili10dockerregistry.azurecr.io/akka-test:poolv4.1
         env:
         - name: ACTORSYSTEM
           value: ClusterSystem
