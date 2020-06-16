@@ -41,7 +41,7 @@ namespace ZKB.Actors
 
         protected override void PreStart()
         {
-            Log.Debug($"HostActor: {Context.Self} start. Parent: {Context.Parent}");
+            Log.Info($"HostActor: {Context.Self} start. Parent: {Context.Parent}");
             Context.ActorSelection(dispatcherPath).Tell(new HostReadyMessage());
         }
     }

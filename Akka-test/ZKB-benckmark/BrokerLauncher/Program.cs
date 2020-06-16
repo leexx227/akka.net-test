@@ -26,6 +26,9 @@ namespace ZKB.BrokerLauncher
 
         static async Task Main(string[] args)
         {
+            totalRequestCount = int.Parse(args[0]);
+            messageLength = int.Parse(args[1]);
+
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
             var config = section.AkkaConfig;
 
