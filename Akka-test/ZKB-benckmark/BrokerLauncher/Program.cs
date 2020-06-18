@@ -1,6 +1,7 @@
 ﻿using Akka.Actor;
 using Akka.Configuration.Hocon;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -16,7 +17,7 @@ namespace ZKB.BrokerLauncher
 
         public static int messageLength = 20;
 
-        public static int hostActorPerVM = 4;
+        public static int hostActorPerVM = 8;
 
         public static int requestTimeMilisec = 600;
 
@@ -24,10 +25,14 @@ namespace ZKB.BrokerLauncher
 
         public static Stopwatch sw;
 
+        public static List<string> vMAddressList = new List<string>();
+
         static async Task Main(string[] args)
         {
             totalRequestCount = int.Parse(args[0]);
             messageLength = int.Parse(args[1]);
+
+            vMAddressList.Add("akka.tcp://ZKB@127.0.0.1:2552");
 
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
             var config = section.AkkaConfig;
@@ -36,7 +41,7 @@ namespace ZKB.BrokerLauncher
 
             var requestQueueActor = system.ActorOf(Props.Create(() => new RequestQueueActor(totalRequestCount, messageLength)), "requestQueue");
 
-            var dispatcherActor = system.ActorOf(Props.Create(() => new DispatcherActor(hostActorPerVM, requestTimeMilisec, requestQueueActor, totalRequestCount, ts)), "dispatcher");
+            var dispatcherActor = system.ActorOf(Props.Create(() => new DispatcherActor(hostActorPerVM, requestTimeMilisec, requestQueueActor, totalRequestCount, ts, vMAddressList)), "dispatcher");
 
             sw = Stopwatch.StartNew();
             dispatcherActor.Tell(new StartMessage());

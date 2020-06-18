@@ -6,6 +6,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using Akka.Event;
+using System.Diagnostics;
 
 namespace ZKB.Actors
 {
@@ -33,10 +34,11 @@ namespace ZKB.Actors
 
         protected ILoggingAdapter Log { get; } = Context.GetLogger();
 
-        public DispatcherActor(int hostActorCountPerVM, int requestTimeMilisec, IActorRef requestQueueActorRef, int totalRequestCount, TaskCompletionSource<bool> ts)
+        private Stopwatch sw = new Stopwatch();
+
+        public DispatcherActor(int hostActorCountPerVM, int requestTimeMilisec, IActorRef requestQueueActorRef, int totalRequestCount, TaskCompletionSource<bool> ts, List<string> vMAddressList)
         {
-            var vm = "akka.tcp://ZKB@127.0.0.1:2552";
-            vMNodeList.Add(vm);
+            vMNodeList = vMAddressList;
 
             this.hostActorCountPerVM = hostActorCountPerVM;
             this.hostActorCount = this.hostActorCountPerVM * vMNodeList.Count;
@@ -44,6 +46,8 @@ namespace ZKB.Actors
             this.RequestQueueActorRef = requestQueueActorRef;
             this.totalRequestCount = totalRequestCount;
             this.ts = ts;
+
+            sw.Start();
 
             DeployHostActors();
         }
@@ -70,7 +74,8 @@ namespace ZKB.Actors
                 
                 if (hostActorReadyCount == hostActorCount)
                 {
-                    //Self.Tell(new StartMessage());
+                    sw.Stop();
+                    Log.Info($"[DispatcherActor] Warmup finish in {sw.ElapsedMilliseconds} milisec.");
                     Log.Debug($"[DispatcherActor] Become dispatching.");
                     Become(Dispatching);
                     Stash.UnstashAll();
