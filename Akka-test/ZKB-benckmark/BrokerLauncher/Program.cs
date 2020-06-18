@@ -1,4 +1,5 @@
 ﻿using Akka.Actor;
+using Akka.Configuration;
 using Akka.Configuration.Hocon;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace ZKB.BrokerLauncher
 
         public static int messageLength = 20;
 
-        public static int hostActorPerVM = 8;
+        public static int hostActorPerVM = 4;
 
         public static int requestTimeMilisec = 600;
 
@@ -32,10 +33,19 @@ namespace ZKB.BrokerLauncher
             totalRequestCount = int.Parse(args[0]);
             messageLength = int.Parse(args[1]);
 
-            vMAddressList.Add("akka.tcp://ZKB@127.0.0.1:2552");
+            for (var i = 0; i < 100; i++)
+            {
+                var nodeName = "IAASCN" + i.ToString("000");
+                var nodeAddress = "akka.tcp://ZKB@" + nodeName + ":2552";
+                vMAddressList.Add(nodeAddress);
+            }
 
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
-            var config = section.AkkaConfig;
+            var defaultConfig = section.AkkaConfig;
+
+            var config =
+                ConfigurationFactory.ParseString("akka.remote.dot-netty.tcp.hostname=" + Environment.MachineName)
+                .WithFallback(defaultConfig);
 
             var system = ActorSystem.Create("ZKB", config);
 
