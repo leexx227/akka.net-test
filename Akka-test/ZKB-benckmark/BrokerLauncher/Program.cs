@@ -33,6 +33,16 @@ namespace ZKB.BrokerLauncher
             totalRequestCount = int.Parse(args[0]);
             messageLength = int.Parse(args[1]);
 
+            if (args.Length > 2)
+            {
+                hostActorPerVM = int.Parse(args[2]);
+            }
+
+            if (args.Length > 3)
+            {
+                requestTimeMilisec = int.Parse(args[3]);
+            }
+
             for (var i = 0; i < 100; i++)
             {
                 var nodeName = "IAASCN" + i.ToString("000");
