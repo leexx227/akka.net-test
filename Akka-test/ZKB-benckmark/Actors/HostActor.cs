@@ -11,7 +11,7 @@ namespace ZKB.Actors
     {
         int requestTimeMilisec;
 
-        string dispatcherPath = "akka.tcp://ZKB@127.0.0.1:2551/user/dispatcher";
+        string dispatcherPath = "akka.tcp://ZKB@TelepathyHN:2551/user/dispatcher";
 
         protected ILoggingAdapter Log { get; } = Context.GetLogger();
 

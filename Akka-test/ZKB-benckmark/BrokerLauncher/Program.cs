@@ -43,12 +43,15 @@ namespace ZKB.BrokerLauncher
                 requestTimeMilisec = int.Parse(args[3]);
             }
 
-            for (var i = 0; i < 100; i++)
-            {
-                var nodeName = "IAASCN" + i.ToString("000");
-                var nodeAddress = "akka.tcp://ZKB@" + nodeName + ":2552";
-                vMAddressList.Add(nodeAddress);
-            }
+            //for (var i = 0; i < 100; i++)
+            //{
+            //    var nodeName = "IAASCN" + i.ToString("000");
+            //    var nodeAddress = "akka.tcp://ZKB@" + nodeName + ":2552";
+            //    vMAddressList.Add(nodeAddress);
+            //}
+
+            var nodeAddress = "akka.tcp://ZKB@TelepathyClient:2552";
+            vMAddressList.Add(nodeAddress);
 
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
             var defaultConfig = section.AkkaConfig;
