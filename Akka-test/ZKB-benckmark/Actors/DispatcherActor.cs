@@ -75,7 +75,7 @@ namespace ZKB.Actors
                 if (hostActorReadyCount == hostActorCount)
                 {
                     sw.Stop();
-                    Log.Info($"[DispatcherActor] Warmup finish in {sw.ElapsedMilliseconds} milisec.");
+                    Log.Info($"[DispatcherActor] Create session finish in {sw.ElapsedMilliseconds} milisec.");
                     Log.Debug($"[DispatcherActor] Become dispatching.");
                     Become(Dispatching);
                     Stash.UnstashAll();
@@ -110,11 +110,11 @@ namespace ZKB.Actors
 
             Receive<RequestCompleteMessage>(_ =>
             {
-                Log.Debug($"Get response from {Sender}");
                 responseCount++;
+                Log.Info($"[DispatcherActor] Get response {responseCount} from {Sender}");
                 if (responseCount == totalRequestCount)
                 {
-                    Log.Debug("Get all response.");
+                    Log.Info("Get all response.");
                     ts.TrySetResult(true);
                 }
                 else
