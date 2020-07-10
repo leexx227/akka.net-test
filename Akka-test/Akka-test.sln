@@ -31,6 +31,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerLauncher", "Akka.Remo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostLauncher", "Akka.Remote\HostLauncher\HostLauncher.csproj", "{8E501F86-FA01-46CF-A535-3B9C209EB1BA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Akka.Persistence", "Akka.Persistence", "{5CE03566-1E39-4A80-8E60-4C4D56755775}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Persistence.Simple", "Akka.Persistence\Akka.Persistence.Simple\Akka.Persistence.Simple.csproj", "{272F2DF1-7994-414F-878F-41C517D31CEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,10 @@ Global
 		{8E501F86-FA01-46CF-A535-3B9C209EB1BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E501F86-FA01-46CF-A535-3B9C209EB1BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E501F86-FA01-46CF-A535-3B9C209EB1BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{272F2DF1-7994-414F-878F-41C517D31CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272F2DF1-7994-414F-878F-41C517D31CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272F2DF1-7994-414F-878F-41C517D31CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272F2DF1-7994-414F-878F-41C517D31CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +105,7 @@ Global
 		{D824FC25-5779-468C-A657-C5E0A4F7D267} = {04E85620-A241-43C7-BED0-11C26FD0C618}
 		{2967DF05-51C1-4179-8C8D-34DAECFED1B3} = {04E85620-A241-43C7-BED0-11C26FD0C618}
 		{8E501F86-FA01-46CF-A535-3B9C209EB1BA} = {04E85620-A241-43C7-BED0-11C26FD0C618}
+		{272F2DF1-7994-414F-878F-41C517D31CEF} = {5CE03566-1E39-4A80-8E60-4C4D56755775}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAF904A9-273D-4FF5-B28A-FD2905447880}
