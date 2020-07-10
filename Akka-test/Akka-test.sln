@@ -9,13 +9,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.Cluster.RoundRobinC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZKB-benckmark", "ZKB-benckmark", "{04E85620-A241-43C7-BED0-11C26FD0C618}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "ZKB-benckmark\Message\Messages.csproj", "{4350B27D-94A3-4158-A937-1F142F123415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messages", "ZKB-benckmark\Message\Messages.csproj", "{4350B27D-94A3-4158-A937-1F142F123415}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actors", "ZKB-benckmark\Actors\Actors.csproj", "{46A302A4-86C7-41FD-A7A1-EC879B393257}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actors", "ZKB-benckmark\Actors\Actors.csproj", "{46A302A4-86C7-41FD-A7A1-EC879B393257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerLauncher", "ZKB-benckmark\BrokerLauncher\BrokerLauncher.csproj", "{709B402D-8BE9-420D-9C21-2C76D78AC833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrokerLauncher", "ZKB-benckmark\BrokerLauncher\BrokerLauncher.csproj", "{709B402D-8BE9-420D-9C21-2C76D78AC833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostLauncher", "ZKB-benckmark\HostLauncher\HostLauncher.csproj", "{1C4AB66F-3B13-45F7-905B-56EE69720CCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HostLauncher", "ZKB-benckmark\HostLauncher\HostLauncher.csproj", "{1C4AB66F-3B13-45F7-905B-56EE69720CCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Akka.Cluster", "Akka.Cluster", "{5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.Messages", "Akka.Cluster\Akka.Cluster.Messages\Akka.Cluster.Messages.csproj", "{0E1419B9-043E-4437-A0E0-147C22DDC2FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.Actors", "Akka.Cluster\Akka.Cluster.Actors\Akka.Cluster.Actors.csproj", "{50486EDB-3866-4A92-905F-475BF28E1F98}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.BackendLauncher", "Akka.Cluster\Akka.Cluster.BackendLauncher\Akka.Cluster.BackendLauncher.csproj", "{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.FrontendLauncher", "Akka.Cluster\Akka.Cluster.FrontendLauncher\Akka.Cluster.FrontendLauncher.csproj", "{E97E359D-485B-4606-81D3-8C1CE01B2608}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.RouterLauncher", "Akka.Cluster\Akka.Cluster.RouterLauncher\Akka.Cluster.RouterLauncher.csproj", "{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Akka.Cluster.SeedNodeLauncher", "Akka.Cluster\SeedNodeLauncher\Akka.Cluster.SeedNodeLauncher.csproj", "{0D80459A-9563-4235-A077-59A743E7D1AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +57,30 @@ Global
 		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E1419B9-043E-4437-A0E0-147C22DDC2FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E1419B9-043E-4437-A0E0-147C22DDC2FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E1419B9-043E-4437-A0E0-147C22DDC2FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E1419B9-043E-4437-A0E0-147C22DDC2FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50486EDB-3866-4A92-905F-475BF28E1F98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50486EDB-3866-4A92-905F-475BF28E1F98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50486EDB-3866-4A92-905F-475BF28E1F98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50486EDB-3866-4A92-905F-475BF28E1F98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E97E359D-485B-4606-81D3-8C1CE01B2608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E97E359D-485B-4606-81D3-8C1CE01B2608}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E97E359D-485B-4606-81D3-8C1CE01B2608}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E97E359D-485B-4606-81D3-8C1CE01B2608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D80459A-9563-4235-A077-59A743E7D1AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D80459A-9563-4235-A077-59A743E7D1AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D80459A-9563-4235-A077-59A743E7D1AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D80459A-9563-4235-A077-59A743E7D1AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +91,12 @@ Global
 		{46A302A4-86C7-41FD-A7A1-EC879B393257} = {04E85620-A241-43C7-BED0-11C26FD0C618}
 		{709B402D-8BE9-420D-9C21-2C76D78AC833} = {04E85620-A241-43C7-BED0-11C26FD0C618}
 		{1C4AB66F-3B13-45F7-905B-56EE69720CCD} = {04E85620-A241-43C7-BED0-11C26FD0C618}
+		{0E1419B9-043E-4437-A0E0-147C22DDC2FF} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
+		{50486EDB-3866-4A92-905F-475BF28E1F98} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
+		{08DCAA34-D5D9-4AFB-A62C-AA4494E4AFA6} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
+		{E97E359D-485B-4606-81D3-8C1CE01B2608} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
+		{D1B4C35B-62F4-49B2-A88A-B5B927BE85C7} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
+		{0D80459A-9563-4235-A077-59A743E7D1AE} = {5CBE5586-D4AC-4385-9DAC-28F1D8B4AA49}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAF904A9-273D-4FF5-B28A-FD2905447880}
