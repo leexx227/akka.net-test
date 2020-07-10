@@ -50,7 +50,7 @@ namespace ZKB.BrokerLauncher
             //    vMAddressList.Add(nodeAddress);
             //}
 
-            var nodeAddress = "akka.tcp://ZKB@TelepathyClient:2552";
+            var nodeAddress = "akka.tcp://ZKB@127.0.0.1:2552";
             vMAddressList.Add(nodeAddress);
 
             var section = (AkkaConfigurationSection)ConfigurationManager.GetSection("akka");
