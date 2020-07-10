@@ -12,7 +12,7 @@ namespace Akka.Cluster.Actors
     {
         private string routerAddress;
 
-        private static string defaultRouterAddress = "akka.tcp://ClusterSystem@AkkaDotNetRoute:2553/user/router";
+        private static string defaultRouterAddress = "akka.tcp://ClusterSystem@127.0.0.1:2553/user/router";
 
         protected Cluster Cluster = Cluster.Get(Context.System);
 
