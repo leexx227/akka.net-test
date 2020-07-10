@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample.Cluster.RoundRobinCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.Cluster.RoundRobinCore", "Samples.Cluster.RoundRobinCore\Samples.Cluster.RoundRobinCore.csproj", "{43032D1E-D47E-40E9-96B6-A2EB123AE3F2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZKB-benckmark", "ZKB-benckmark", "{04E85620-A241-43C7-BED0-11C26FD0C618}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Akka.Remote", "Akka.Remote", "{04E85620-A241-43C7-BED0-11C26FD0C618}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messages", "ZKB-benckmark\Message\Messages.csproj", "{4350B27D-94A3-4158-A937-1F142F123415}"
 EndProject
