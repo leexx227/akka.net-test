@@ -7,6 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample.Cluster.RoundRobinCo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples.Cluster.RoundRobinCore", "Samples.Cluster.RoundRobinCore\Samples.Cluster.RoundRobinCore.csproj", "{43032D1E-D47E-40E9-96B6-A2EB123AE3F2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ZKB-benckmark", "ZKB-benckmark", "{04E85620-A241-43C7-BED0-11C26FD0C618}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "ZKB-benckmark\Message\Messages.csproj", "{4350B27D-94A3-4158-A937-1F142F123415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actors", "ZKB-benckmark\Actors\Actors.csproj", "{46A302A4-86C7-41FD-A7A1-EC879B393257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrokerLauncher", "ZKB-benckmark\BrokerLauncher\BrokerLauncher.csproj", "{709B402D-8BE9-420D-9C21-2C76D78AC833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostLauncher", "ZKB-benckmark\HostLauncher\HostLauncher.csproj", "{1C4AB66F-3B13-45F7-905B-56EE69720CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +27,32 @@ Global
 		{43032D1E-D47E-40E9-96B6-A2EB123AE3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43032D1E-D47E-40E9-96B6-A2EB123AE3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43032D1E-D47E-40E9-96B6-A2EB123AE3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4350B27D-94A3-4158-A937-1F142F123415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4350B27D-94A3-4158-A937-1F142F123415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4350B27D-94A3-4158-A937-1F142F123415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4350B27D-94A3-4158-A937-1F142F123415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46A302A4-86C7-41FD-A7A1-EC879B393257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A302A4-86C7-41FD-A7A1-EC879B393257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A302A4-86C7-41FD-A7A1-EC879B393257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A302A4-86C7-41FD-A7A1-EC879B393257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709B402D-8BE9-420D-9C21-2C76D78AC833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709B402D-8BE9-420D-9C21-2C76D78AC833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709B402D-8BE9-420D-9C21-2C76D78AC833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709B402D-8BE9-420D-9C21-2C76D78AC833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4AB66F-3B13-45F7-905B-56EE69720CCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{43032D1E-D47E-40E9-96B6-A2EB123AE3F2} = {38B5102F-097E-40C5-A5D4-255513918553}
+		{4350B27D-94A3-4158-A937-1F142F123415} = {04E85620-A241-43C7-BED0-11C26FD0C618}
+		{46A302A4-86C7-41FD-A7A1-EC879B393257} = {04E85620-A241-43C7-BED0-11C26FD0C618}
+		{709B402D-8BE9-420D-9C21-2C76D78AC833} = {04E85620-A241-43C7-BED0-11C26FD0C618}
+		{1C4AB66F-3B13-45F7-905B-56EE69720CCD} = {04E85620-A241-43C7-BED0-11C26FD0C618}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EAF904A9-273D-4FF5-B28A-FD2905447880}

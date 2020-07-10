@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>ZKB.Actors</AssemblyName>
+    <RootNamespace>ZKB.Actors</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Akka" Version="1.4.7" />
+    <PackageReference Include="Akka.Serialization.Hyperion" Version="1.4.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Message\Messages.csproj" />
+  </ItemGroup>
+
+</Project>
