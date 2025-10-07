@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Akka.Remote" Version="1.4.7" />
+    <PackageReference Include="Akka.Remote" Version="1.5.52" />
   </ItemGroup>
 
   <ItemGroup>
